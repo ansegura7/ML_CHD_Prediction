@@ -20,11 +20,14 @@ suppressWarnings(library(rpart))
 suppressWarnings(library(randomForest))
 suppressWarnings(library(ada))
 
-# Loading K-forlds library
+# Loading K-folds library
 suppressWarnings(library(caret))
 
-# Loading FactoMineR
+# Loading FactoMineR library
 suppressWarnings(library(FactoMineR))
+
+# Loading plotting libraries
+suppressWarnings(library(ggplot2))
 
 # Loading data
 saha_data <- read.csv("ML_CHD_Prediction/data/SAheart.csv", header = TRUE, sep = ',', dec = '.')
@@ -33,15 +36,15 @@ saha_data <- read.csv("ML_CHD_Prediction/data/SAheart.csv", header = TRUE, sep =
 # 2. Descriptive Data Analysis  #
 #################################
 
-# Show dim of dataframe (rows, cols)
+# Show dataframe dim(rows, cols)
 dim(saha_data)
 
-# Summary of data
+# Summary of dataset
 # Note: famhist -> Present = 1, Absent = 0
 head(saha_data, n = 10)
 
 # Boxplots are created to identify the outliers for each variable
-# Famhist and chd variables are not analyzed, because they are dichotomous variables
+# famhist and chd variables are not analyzed, because they are dichotomous variables
 boxplot(x = saha_data[, c(-5, -10)], range = 2, border = c("blue", "green", "black", "orange"), las=2, cex.axis=0.9, cex.names=0.9)
 
 # The Scatterplot is created with the correlation matrices
@@ -51,7 +54,7 @@ pairs(saha_data)
 pca.res <- PCA(saha_data[, c(-5, -10)], scale.unit = TRUE, graph = FALSE)
 pca.res$eig
 
-# The Correlation circle is plotted - Only the variables that have cos2 > 0.25 (25%)
+# The Correlation circle is plotted - Only variables that have cos2 > 0.25 (25%)
 plot(pca.res, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE, select="cos2 0.25")
 
 ##############################################
@@ -61,7 +64,7 @@ plot(pca.res, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE, select="c
 # Get rows number
 nRows <- nrow(saha_data)
 
-# Amount of Yes and No for the CHD variable
+# Calculate the amount of Yes and No for the CHD variable
 nYes <- sum(saha_data$chd == "Yes")
 nNo <- nRows - nYes
 
@@ -239,6 +242,10 @@ for(i in 1:nCV) {
   error.global.adaboost[i] <- error.adaboost / nFolds
 }
 
+###################################
+# 5. Plotting the Models Results  #
+###################################
+
 # The limits for Plot 1 are calculated
 yLim <- c(min(error.global.svm, error.global.knn, error.global.bayes, error.global.dtree, error.global.forest, error.global.adaboost) * 0.9,
           max(error.global.svm, error.global.knn, error.global.bayes, error.global.dtree, error.global.forest, error.global.adaboost) * 1.3)
@@ -320,5 +327,5 @@ ptm <- (proc.time() - ptm)
 cat("Time: ", ptm)
 
 #####################
-# 4. End of Script  #
+# 6. End of Script  #
 #####################
