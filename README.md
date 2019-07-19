@@ -19,6 +19,12 @@ The data used is a sample of 462 records of a larger dataset, described in Rouss
 | 9 | age | Input | Age at onset |
 | 10 | chd | Target | Coronary heart disease (Yes, No) |
 
+## Technologies and Techniques
+- R 3.5.1 x64
+- RStudio - Version 1.1.383
+- Descriptive Data Analysis
+- Supervised Learning (SL)
+
 ## R Dependencies
 ```{r }
   library(e1071)
@@ -36,10 +42,6 @@ If you need to install a package, use the following command in the R console
 ```{r }
   install.packages("package-name", dependencies=TRUE)
 ```
-
-## Technologies and Techniques
-- R 3.5.1 x64
-- RStudio - Version 1.1.383
 
 ## Contributing and Feedback
 Any kind of feedback/criticism would be greatly appreciated (algorithm design, documentation, improvement ideas, spelling mistakes, etc...).
