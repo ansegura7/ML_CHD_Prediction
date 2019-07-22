@@ -58,7 +58,7 @@ pca.res$eig
 plot(pca.res, axes=c(1, 2), choix="var", col.var="blue",new.plot=TRUE, select="cos2 0.25")
 
 ##############################################
-# 3. The Base Reference Error is Calculated  #
+# 3. The Base Reference Error is calculated  #
 ##############################################
 
 # Get rows number
