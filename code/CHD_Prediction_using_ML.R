@@ -252,7 +252,7 @@ yLim <- c(min(error.global.svm, error.global.knn, error.global.bayes, error.glob
 
 # The curves are plotted with the average global error of each model
 plot(error.global.svm, col = "magenta", type = "b", ylim = yLim, main = "Detection of people prone to CHD",
-     xlab = "Número de iteración", ylab = "Global Error", cex.axis = 0.9)
+     xlab = "CV Iteration", ylab = "Global Error", cex.axis = 0.9)
 points(error.global.knn, col = "blue", type = "b")
 points(error.global.bayes, col = "red", type = "b")
 points(error.global.dtree, col = "lightblue3", type = "b")
@@ -269,7 +269,7 @@ yLim <- c(0, nYes)
 
 # The curves of the Yes detection are plotted
 plot(detection.yes.svm, col = "magenta", type = "b", ylim = yLim, main = "Detection of people who are prone to CHD",
-     xlab = "Número de iteración", ylab = "Yes detected", cex.axis = 0.9)
+     xlab = "CV Iteration", ylab = "Yes detected", cex.axis = 0.9)
 points(detection.yes.knn, col = "blue", type = "b")
 points(detection.yes.bayes, col = "red", type = "b")
 points(detection.yes.dtree, col = "lightblue3", type = "b")
@@ -286,7 +286,7 @@ yLim <- c(0, nNo)
 
 # The curves of the No detection are plotted
 plot(detection.no.svm, col = "magenta", type = "b", ylim = yLim, main = "Detection of people who are NOT prone to CHD",
-     xlab = "Número de iteración", ylab = "No detected", cex.axis = 0.9)
+     xlab = "CV Iteration", ylab = "No detected", cex.axis = 0.9)
 points(detection.no.knn, col = "blue", type = "b")
 points(detection.no.bayes, col = "red", type = "b")
 points(detection.no.dtree, col = "lightblue3", type = "b")
