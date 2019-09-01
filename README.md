@@ -44,7 +44,7 @@ Based on the following results, the Naive Bayes model was selected as the best p
 
 ## R Dependencies
 
-```
+``` r
   library(e1071)
   library(kknn)
   library(MASS)
@@ -57,7 +57,7 @@ Based on the following results, the Naive Bayes model was selected as the best p
 ```
 
 If you need to install a package, use the following command in the R console:
-```
+``` r
   install.packages("package-name", dependencies=TRUE)
 ```
 
