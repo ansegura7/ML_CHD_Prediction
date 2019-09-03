@@ -1,2 +1,5 @@
 title: Prediction of CHD Risk with R
+description: Data science project in R to create a predictive model of the CHD risk, based on supervised learning
+show_downloads: true
+google_analytics:
 theme: jekyll-theme-cayman
